@@ -108,29 +108,89 @@ fun hw10 (number: Int): Boolean {
 если их сумма четная и делится на 10, "Even but not Divisible by 10", если сумма четная, но не делится на 10, и "Odd", если сумма нечетная.
  */
 
-
+fun hw11(number: Int,number2: Int):String{
+    val sum = number + number2
+    return when {
+        sum % 2 == 0 && sum % 10 == 0 -> "Even and Divisible by 10"
+        sum % 2 == 0 -> "Even but not Divisible by 10"
+        else -> "Odd"
+    }
+}
 
 /**
 Максимум трех чисел
 Напишите функцию, которая принимает три числа и возвращает наибольшее из них.
  */
 
+fun hw12(number: Int,number2: Int,number3: Int): Int{
+    return if (number >= number2 && number >= number3) {
+        number
+    } else if (number2 >= number && number2 >= number3) {
+        number2
+    } else {
+        number3
+    }
+}
 /**
 Проверка на палиндромность числа
 Создайте функцию, которая принимает целое число и проверяет, является ли оно палиндромом (например, 121 или 12321). Верните true, если да, и false, если нет.
  */
+
+fun hw13(number: Int): Boolean {
+    var original = number
+    var reversed = 0
+
+    // Получаем число в обратном порядке
+    while (original > 0) {
+        val digit = original % 10 // Извлекаем последнюю цифру
+        reversed = reversed * 10 + digit // Добавляем цифру в конец перевернутого числа
+        original /= 10 // Убираем последнюю цифру из оригинального числа
+    }
+
+    // Сравниваем перевернутое число с оригинальным
+    return number == reversed
+}
+
 
 /**
 Кратность чисел и их сумма
 Реализуйте функцию, которая принимает два числа. Если оба числа кратны 3, верните их сумму; если одно из них кратно 3, верните удвоенное значение второго числа; если ни одно не кратно 3, верните null.
  */
 
+fun hw14(number: Int, number2: Int): Int? {
+    return if (number % 3 == 0 && number2 % 3 == 0) {
+        number + number2
+    } else if (number % 3 == 0) {
+        number2 * 2
+    } else if (number2 % 3 == 0) {
+        number * 2
+    } else {
+        null
+    }
+}
+
 /**
 Проверка возраста на категорию
 Напишите функцию, которая принимает возраст и возвращает категорию: Child (до 12 лет), Teenager (от 13 до 17 лет), Adult (от 18 до 64 лет) или Senior (от 65 лет и старше).
  */
 
+fun hw15(number: Int) {
+    return if (number <= 12){
+        println("Child")
+    }else if (number >= 13 && number <= 17){
+        println("Teenager")
+    }else if (number >= 18 && number <= 64){
+        println("Adult")
+    }else {
+        println("Senior")
+    }
+}
+
 /**
 Проверка на делимость с остальным значением
 Создайте функцию, которая принимает два числа и проверяет, делится ли первое число на второе с остатком равным 2. Верните true, если делится с остатком 2, и false — если нет.
  */
+
+fun hw16 (number: Int,number2: Int):Boolean{
+   return number % number2 == 2
+}

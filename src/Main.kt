@@ -1,6 +1,7 @@
 fun main() {
-    val number = 24
-    val number2 = 8
-    val result = hw10(number)
+    val number = 10
+    val number2 = 4
+    val number3 = 16
+    val result = hw16(number,number2)
     println("Ответ -> $result" )
 }
